@@ -111,7 +111,7 @@ def get_date_input(prompt):
 
 def menu(data_table):
     while True:
-        print("\n--- Weather Data Analysis ---")
+        print("\n---- Weather Data Analysis ----")
         choice = get_user_choice(series_titles, "Select a data series (or type 'exit'): ")
         if choice is None: break
 
