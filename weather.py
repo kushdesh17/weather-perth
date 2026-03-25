@@ -1,3 +1,5 @@
+from datetime import date
+
 series_titles = [
     "Maximum temperature (Degree C)",
     "Minimum temperature (Degree C)",
@@ -15,7 +17,20 @@ def standard_deviation(in_series):
     pass
 
 def filter_series(year_series, month_series, day_series, data_series, max_date=None, min_date=None):
-    pass
+    filtered_data = []
+
+    for year, month, day, value in zip(year_series, month_series, day_series, data_series):
+        current_date = date(int(year), int(month), int(day))
+
+        if min_date is not None and current_date < min_date:
+            continue
+
+        if max_date is not None and current_date > max_date:
+            continue
+
+        filtered_data.append(value)
+
+    return filtered_data
 
 def add_temperature_range(data_table):
     max_series = data_table["Maximum temperature (Degree C)"]
