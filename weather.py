@@ -6,9 +6,11 @@ series_titles = [
     "Rainfall amount (millimetres)",
     "Temperature range (Degree C)"
 ]
-
 def mean(in_series):
-    pass
+    values = [v for v in in_series if v is not None]
+    if len(values) == 0:
+        return None
+    return sum(values) / len(values)
 
 def variance(in_series):
     pass
